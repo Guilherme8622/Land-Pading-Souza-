@@ -3,18 +3,18 @@
 ========================================= */
 :root {
     /* Paleta de Fundo (Azuis Profundos) */
-    --bg-main: #061121;      /* Azul quase preto (Fundo principal) */
-    --bg-secondary: #0A192F; /* Azul marinho escuro (Seções alternadas) */
-    --bg-card: #112240;      /* Azul um pouco mais claro (Cards e Formulários) */
+    --bg-main: #061121;
+    --bg-secondary: #0A192F;
+    --bg-card: #112240;
     
-    /* Cores de Destaque (Inspirado na referência) */
-    --gold: #C5A059;         /* Dourado dos botões */
+    /* Cores de Destaque */
+    --gold: #C5A059;
     --gold-hover: #b08d4b;
-    --accent-blue: #2F6BFF;  /* Azul moderno para detalhes/ícones */
+    --accent-blue: #2F6BFF;
     
     /* Textos */
-    --text-title: #FFFFFF;   /* Branco puro para títulos */
-    --text-body: #A8B2D1;    /* Azul/Cinza claro para parágrafos (não cansa a vista) */
+    --text-title: #FFFFFF;
+    --text-body: #A8B2D1;
     
     /* Tipografia */
     --font-title: 'Playfair Display', serif;
@@ -29,6 +29,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* teste */
+
 
 html {
     scroll-behavior: smooth;
@@ -55,18 +58,16 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-title);
     color: var(--text-title);
-    font-weight: 600; /* Traço mais elegante e menos pesado */
-    line-height: 1.25; /* Altura da linha ideal para títulos */
-    letter-spacing: -0.02em; /* Aproximação sutil das letras (Design Moderno) */
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
     margin-bottom: 0.5em;
-    
-    /* O 'toque de mágica' para fundos escuros: deixa a fonte super nítida */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ajuste específico para garantir que os textos normais (parágrafos) também fiquem nítidos */
 p, a, li, span {
+    font-family: var(--font-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -79,22 +80,27 @@ p, a, li, span {
 .mt-4 { margin-top: 1.5rem; }
 .mb-5 { margin-bottom: 3rem; }
 
-/* Fundos das seções alternadas */
 .bg-light { background-color: var(--bg-secondary); }
 .bg-dark-section { background-color: var(--bg-main); }
 
-/* Títulos das Seções */
 .section-title {
+    font-family: var(--font-title);
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     color: var(--text-title);
 }
-.section-title.dark-text { color: var(--text-title); } /* Forçando branco */
-.section-title span {
-    color: var(--gold); /* Detalhes em dourado nos títulos */
+
+.section-title.dark-text {
+    color: var(--text-title);
 }
 
-/* Botões */
+.section-title span {
+    color: var(--gold);
+}
+
+/* =========================================
+   BOTÕES
+========================================= */
 .btn {
     display: inline-block;
     padding: 14px 32px;
@@ -110,13 +116,24 @@ p, a, li, span {
     font-size: 0.9rem;
 }
 
-.btn-sm { padding: 10px 20px; font-size: 0.8rem; }
-.btn-lg { padding: 16px 36px; font-size: 1rem; }
-.btn-full { width: 100%; padding: 16px; }
+.btn-sm {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+}
+
+.btn-lg {
+    padding: 16px 36px;
+    font-size: 1rem;
+}
+
+.btn-full {
+    width: 100%;
+    padding: 16px;
+}
 
 .btn-gold {
     background-color: var(--gold);
-    color: #fff; /* Texto do botão */
+    color: #fff;
 }
 
 .btn-gold:hover {
@@ -153,16 +170,16 @@ p, a, li, span {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(6, 17, 33, 0.95); /* Azul fundo transparente */
+    background-color: rgba(6, 17, 33, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: var(--transition);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 #header.scrolled {
     background-color: var(--bg-main);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     padding: 5px 0;
 }
 
@@ -170,39 +187,42 @@ p, a, li, span {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
+    height: 110px;
     transition: var(--transition);
 }
 
 #header.scrolled .nav-container {
-    height: 70px;
+    height: 90px;
 }
 
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 15px;
-}
-
-.logo-icon {
+    flex-shrink: 0;
     font-family: var(--font-title);
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--gold);
 }
 
-.logo-text h1 {
-    color: var(--text-title);
-    font-size: 1.2rem;
-    margin-bottom: 2px;
+.logo-image {
+    display: block;
+    width: auto;
+    height: 74px;
+    object-fit: contain;
 }
 
-.logo-text p {
-    color: var(--gold);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.footer-logo {
+    display: block;
+    width: min(100%, 340px);
+    height: auto;
+    margin-bottom: 14px;
+    object-fit: contain;
+}
+
+.footer-monogram {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    opacity: 0.9;
 }
 
 .navbar {
@@ -218,6 +238,7 @@ p, a, li, span {
 }
 
 .nav-links a {
+    font-family: var(--font-text);
     color: var(--text-title);
     text-decoration: none;
     font-size: 0.85rem;
@@ -239,8 +260,13 @@ p, a, li, span {
     transition: var(--transition);
 }
 
-.nav-links a:hover::after { width: 100%; }
-.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
 
 .mobile-menu-btn {
     display: none;
@@ -254,20 +280,14 @@ p, a, li, span {
 /* =========================================
    HERO SECTION
 ========================================= */
-/* Localize e substitua este bloco no seu style.css */
 .hero {
     height: 100vh;
     min-height: 600px;
-    
     background-image: url('assets/img/simbolo_da_justica_advogado.jpg');
-    
-    /* A MÁGICA ESTÁ AQUI: */
-    background-size: contain; /* Força a imagem a aparecer inteira, sem cortar NADA */
-    background-position: right center; /* Alinha a imagem à direita para destacar a estátua */
-    background-repeat: no-repeat; /* Evita que a imagem se multiplique */
-    
-    background-color: #061121; /* Preenche o resto da tela com o azul escuro para não ficar branco */
-    
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: #061121;
     position: relative;
     display: flex;
     align-items: center;
@@ -275,120 +295,84 @@ p, a, li, span {
     text-align: center;
 }
 
-/* Garanta que o overlay ainda funcione para manter o texto legível */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Gradiente em tons de azul escuro como na imagem de referência */
-    background: linear-gradient(to bottom, rgba(6,17,33,0.85), rgba(10,25,47,0.95));
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Gradiente em tons de azul escuro como na imagem */
-    background: linear-gradient(to bottom, rgba(6,17,33,0.85), rgba(10,25,47,0.95));
+    background: linear-gradient(to bottom, rgba(6, 17, 33, 0.85), rgba(10, 25, 47, 0.95));
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
     color: var(--text-title);
-    max-width: 800px;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
 }
 
-.hero-big-logo {
-    font-size: 5rem;
-    color: var(--text-title);
-    margin-bottom: 20px;
-    display: block;
+.hero-logo {
+    width: min(100%, 482px);
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 24px;
+    filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.32));
 }
 
-.hero-title {
-    font-size: 3.5rem;
+.hero-kicker {
+    font-family: var(--font-text);
+    font-size: 1.1rem;
     color: var(--text-title);
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin-bottom: 40px;
+    font-family: var(--font-text);
+    max-width: 520px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-bottom: 30px;
     color: var(--text-body);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-transform: none;
+    letter-spacing: 0.02em;
 }
 
 /* =========================================
-  /* =========================================
-   QUEM SOMOS (Apresentação - Com Marca d'água)
+   QUEM SOMOS
 ========================================= */
-
-/* =========================================
-   QUEM SOMOS (Apresentação - SENIOR UI REFINEMENT)
-========================================= */
-
-/* 1. FUNDO E MARCA D'ÁGUA (Correções de Design Premium) */
 .quem-somos-watermark {
-    /* COR DE FUNDO AZUL PROFUNDO ORIGINAL */
-    background-color: #0A192F; 
-    
-    /* CHAMA A SUA IMAGEM */
-    background-image: url('assets/img/Marca_daagua.jpg'); 
-    
-    /* === CORREÇÕES DE UI DESIGN SENIOR === */
-    
-    /* CORREÇÃO 1: CENTRALIZAÇÃO E POSICIONAMENTO */
-    background-position: center center; /* Garante centralização perfeita vertical e horizontal */
-    
-    /* CORREÇÃO 2: ELIMINAÇÃO DOS QUADRADOS (REPETIÇÃO) */
-    background-repeat: no-repeat !important; /* Garante que ela NUNCA se repita, forçando a regra */
-    
-    /* CORREÇÃO 3: TAMANHO E ENCAIXE PROFISSIONAL */
-    /* Usamos 'contain' para que o símbolo apareça INTEIRO e centralizado, sem cortar detalhes */
-    background-size: contain; 
-    
-    /* CORREÇÃO 4: MESCLAGEM PROFISSIONAL (Elimina o branco da img original) */
-    /* 'Luminosity' ou 'Multiply' funcionam bem aqui. Multiply é mais seguro para JPGs claros. */
-    background-blend-mode: multiply; 
-    
-    position: relative; 
+    background-color: #0A192F;
+    background-image: url('assets/img/Marca_daagua.jpg');
+    background-position: center center;
+    background-repeat: no-repeat !important;
+    background-size: contain;
+    background-blend-mode: multiply;
+    position: relative;
     overflow: hidden;
-    
-    /* Ajuste fino de padding para dar "ar" ao símbolo centralizado */
     padding-top: 120px;
     padding-bottom: 120px;
 }
 
-/* Camada de ofuscamento refinada para garantir nitidez do texto branco */
 .quem-somos-watermark::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Gradiente mais suave para blend profissional com o símbolo */
-    background: radial-gradient(circle, rgba(10,25,47,0.7) 40%, rgba(10,25,47,1) 100%);
-    z-index: 1; 
-    opacity: 0.95; /* Quase transparente para ser extremamente sutil */
+    inset: 0;
+    background: radial-gradient(circle, rgba(10, 25, 47, 0.7) 40%, rgba(10, 25, 47, 1) 100%);
+    z-index: 1;
+    opacity: 0.95;
 }
 
-/* Força os textos e botões a ficarem acima da marca d'água (Z-INDEX SUPERIOR) */
 .content-above {
     position: relative;
-    z-index: 2; /* Fica acima da camada ::before */
+    z-index: 2;
 }
 
-/* 2. SEU CÓDIGO ORIGINAL MANTIDO (Grid, listas e espaçamentos) */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -411,7 +395,7 @@ p, a, li, span {
 }
 
 .benefits-list i {
-    color: var(--gold); /* Dourado/Azul destaque */
+    color: var(--gold);
     font-size: 1.2rem;
 }
 
@@ -420,11 +404,7 @@ p, a, li, span {
 }
 
 /* =========================================
-   ÁREAS DE ATUAÇÃO (Cards)
-========================================= */
- /* Substitua apenas este bloco no seu style.css */
-/* =========================================
-   ÁREAS DE ATUAÇÃO (Cards Premium)
+   ÁREAS DE ATUAÇÃO
 ========================================= */
 .areas-grid {
     display: flex;
@@ -436,20 +416,19 @@ p, a, li, span {
 .area-card {
     background-color: var(--bg-card);
     padding: 40px 30px;
-    border-radius: 8px; /* Cantos levemente mais suaves */
-    border: 1px solid rgba(255, 255, 255, 0.03); /* Borda ultra fina premium */
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     transition: var(--transition);
     text-align: left;
     flex: 0 0 calc(33.333% - 20px);
     max-width: 380px;
     position: relative;
-    overflow: hidden; /* Necessário para a animação da linha superior */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
-/* Linha animada no topo do card */
 .area-card::before {
     content: '';
     position: absolute;
@@ -457,26 +436,25 @@ p, a, li, span {
     left: 0;
     width: 0;
     height: 3px;
-    background-color: var(--gold); /* Usa a sua cor de destaque (Azul/Dourado) */
+    background-color: var(--gold);
     transition: width 0.4s ease-in-out;
 }
 
 .area-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    background-color: #142540; /* Clareia muito sutilmente o fundo no hover */
-    border-color: rgba(47, 107, 255, 0.15); /* Borda ganha um leve brilho da cor de destaque */
+    background-color: #142540;
+    border-color: rgba(47, 107, 255, 0.15);
 }
 
 .area-card:hover::before {
-    width: 100%; /* A linha cresce e preenche o topo */
+    width: 100%;
 }
 
-/* Container sofisticado para o ícone */
 .area-icon {
     width: 65px;
     height: 65px;
-    background: rgba(47, 107, 255, 0.08); /* Fundo translúcido elegante */
+    background: rgba(47, 107, 255, 0.08);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -490,7 +468,7 @@ p, a, li, span {
 .area-card:hover .area-icon {
     background: var(--gold);
     color: #fff;
-    transform: scale(1.05); /* Ícone cresce sutilmente */
+    transform: scale(1.05);
 }
 
 .area-card h3 {
@@ -505,7 +483,8 @@ p, a, li, span {
     font-size: 0.95rem;
     line-height: 1.7;
     margin: 0;
-} 
+}
+
 /* =========================================
    DIFERENCIAIS
 ========================================= */
@@ -549,14 +528,11 @@ p, a, li, span {
 /* =========================================
    EQUIPE
 ========================================= */
-/* =========================================
-   EQUIPE DE ADVOGADOS (Design Premium 2 Sócios)
-========================================= */
 .team-grid-premium {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 60px;
-    max-width: 900px; /* Mantém os cards num tamanho imponente, mas elegante */
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -574,26 +550,25 @@ p, a, li, span {
     position: relative;
     border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .team-img-wrapper img {
     width: 100%;
-    height: 500px; /* Fotos altas e imponentes */
+    height: 500px;
     object-fit: cover;
-    filter: grayscale(80%); /* Ar corporativo sofisticado */
+    filter: grayscale(80%);
     transition: all 0.5s ease;
 }
 
 .team-card-premium:hover .team-img-wrapper img {
-    filter: grayscale(0%); /* Revela as cores originais ao passar o mouse */
-    transform: scale(1.03); /* Leve zoom */
+    filter: grayscale(0%);
+    transform: scale(1.03);
 }
 
-/* Camada que aparece sobre a foto pedindo para clicar */
 .team-overlay {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    inset: 0;
     background: rgba(10, 25, 47, 0.75);
     display: flex;
     align-items: center;
@@ -636,18 +611,21 @@ p, a, li, span {
 }
 
 /* =========================================
-   MODAIS DA EQUIPE (Janela Pop-up)
+   MODAIS DA EQUIPE
 ========================================= */
 .team-modal {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
-    z-index: 2000; /* Acima de tudo no site */
-    left: 0; top: 0; width: 100%; height: 100%;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(6, 17, 33, 0.95);
     backdrop-filter: blur(10px);
     opacity: 0;
     transition: opacity 0.4s ease;
-    overflow-y: auto; /* Permite rolar se o texto for gigante */
+    overflow-y: auto;
 }
 
 .team-modal.show {
@@ -661,12 +639,12 @@ p, a, li, span {
     background-color: var(--bg-card);
     margin: auto;
     padding: 0;
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 4px;
     width: 90%;
     max-width: 950px;
     position: relative;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     transform: translateY(50px);
     transition: transform 0.4s ease;
 }
@@ -687,7 +665,9 @@ p, a, li, span {
     transition: var(--transition);
 }
 
-.close-modal:hover { color: var(--gold); }
+.close-modal:hover {
+    color: var(--gold);
+}
 
 .modal-grid {
     display: grid;
@@ -707,15 +687,34 @@ p, a, li, span {
     text-align: left;
 }
 
-/* Responsividade Mobile para a Equipe e Modais */
-@media (max-width: 991px) {
-    .modal-grid { grid-template-columns: 1fr; }
-    .modal-img img { border-radius: 4px 4px 0 0; height: 350px; min-height: unset; }
-    .modal-text { padding: 30px; }
+/* =========================================
+   CTA
+========================================= */
+.cta-section {
+    position: relative;
+    padding: 90px 0;
+    background:
+        radial-gradient(circle at top, rgba(197, 160, 89, 0.12), transparent 45%),
+        linear-gradient(180deg, #081525 0%, #0a192f 100%);
+    overflow: hidden;
 }
-@media (max-width: 768px) {
-    .team-grid-premium { grid-template-columns: 1fr; }
-    .team-img-wrapper img { height: 450px; }
+
+.cta-monogram {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    opacity: 0.92;
+}
+
+.cta-section h2 {
+    font-size: 2.4rem;
+    margin-bottom: 14px;
+}
+
+.cta-section p {
+    max-width: 640px;
+    margin: 0 auto;
 }
 
 /* =========================================
@@ -732,7 +731,9 @@ p, a, li, span {
     align-items: start;
 }
 
-.address-block { margin-bottom: 30px; }
+.address-block {
+    margin-bottom: 30px;
+}
 
 .address-block h4 {
     color: var(--text-title);
@@ -752,25 +753,39 @@ p, a, li, span {
     color: var(--text-body);
 }
 
-.contact-details i { color: var(--gold); font-size: 1.2rem; }
+.contact-details i {
+    color: var(--gold);
+    font-size: 1.2rem;
+}
 
-/* Formulário */
 .contact-form {
     background: var(--bg-card);
     padding: 40px;
     border-radius: 4px;
 }
 
-.form-group { margin-bottom: 20px; }
-.form-row { display: flex; gap: 20px; }
-.col-ddd { flex: 0 0 80px; }
-.col-phone { flex: 1; }
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.col-ddd {
+    flex: 0 0 80px;
+}
+
+.col-phone {
+    flex: 1;
+}
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 15px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     font-family: var(--font-text);
     font-size: 0.9rem;
@@ -796,10 +811,10 @@ p, a, li, span {
    FOOTER
 ========================================= */
 .footer {
-    background-color: #030811; /* Ainda mais escuro pro rodapé */
+    background-color: #030811;
     color: var(--text-body);
     padding-top: 80px;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-grid {
@@ -809,7 +824,14 @@ p, a, li, span {
     margin-bottom: 60px;
 }
 
-.footer-links h4, .footer-social h4 {
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-links h4,
+.footer-social h4 {
     color: var(--text-title);
     margin-bottom: 20px;
     font-family: var(--font-text);
@@ -818,17 +840,29 @@ p, a, li, span {
     letter-spacing: 1px;
 }
 
-.footer-links ul { list-style: none; }
-.footer-links li { margin-bottom: 12px; }
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
 .footer-links a {
     color: var(--text-body);
     text-decoration: none;
     transition: var(--transition);
     font-size: 0.9rem;
 }
-.footer-links a:hover { color: var(--gold); }
 
-.social-icons { display: flex; gap: 15px; }
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
 
 .social-icons a {
     display: flex;
@@ -868,7 +902,7 @@ p, a, li, span {
     border-radius: 50px;
     text-align: center;
     font-size: 30px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -883,99 +917,264 @@ p, a, li, span {
 }
 
 /* =========================================
-   ANIMAÇÕES DE ENTRADA Seguras
+   ANIMAÇÕES DE ENTRADA
 ========================================= */
-body.js-active .fade-in { opacity: 0; transition: opacity 1s ease-in; }
-body.js-active .slide-in-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease-out; }
-body.js-active .slide-in-right { opacity: 0; transform: translateX(50px); transition: all 0.8s ease-out; }
-body.js-active .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
-.appear { opacity: 1 !important; transform: translate(0) !important; }
-
-/* =========================================
-   MEDIA QUERIES (Responsividade Premium)
-========================================= */
-
-/* Tablets e Notebooks Pequenos */
-@media (max-width: 1024px) {
-    .hero-title { font-size: 2.8rem; }
-    .areas-grid { gap: 20px; }
-    /* Faz os cards de áreas ficarem 2 por linha no tablet */
-    .area-card { flex: 0 0 calc(50% - 10px); max-width: 100%; } 
-    .team-card { flex: 0 0 calc(33.333% - 20px); }
+body.js-active .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in;
 }
 
-/* Celulares e Tablets em Pé */
+body.js-active .slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease-out;
+}
+
+body.js-active .slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease-out;
+}
+
+body.js-active .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.appear {
+    opacity: 1 !important;
+    transform: translate(0) !important;
+}
+
+/* =========================================
+   MEDIA QUERIES
+========================================= */
+@media (max-width: 1024px) {
+    .hero-logo {
+        width: min(100%, 446px);
+    }
+
+    .hero-kicker {
+        font-size: 1rem;
+    }
+
+    .areas-grid {
+        gap: 20px;
+    }
+
+    .area-card {
+        flex: 0 0 calc(50% - 10px);
+        max-width: 100%;
+    }
+
+    .team-card {
+        flex: 0 0 calc(33.333% - 20px);
+    }
+}
+
+@media (max-width: 991px) {
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-img img {
+        border-radius: 4px 4px 0 0;
+        height: 350px;
+        min-height: unset;
+    }
+
+    .modal-text {
+        padding: 30px;
+    }
+}
+
 @media (max-width: 768px) {
-    /* Ajustes Gerais de Espaçamento */
-    .section-padding { padding: 60px 0; }
-    .section-title { font-size: 2rem; }
-    
-    /* Menu Mobile Elegante */
-    .mobile-menu-btn { display: block; }
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
     .navbar {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #061121; /* Azul noturno do site */
+        background-color: #061121;
         flex-direction: column;
         padding: 30px 20px;
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         transition: clip-path 0.4s ease-in-out;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     }
-    .navbar.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-    .nav-links { flex-direction: column; width: 100%; text-align: center; gap: 25px; }
-    
-    /* Hero Section Mobile */
+
+    .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .nav-container {
+        height: 88px;
+    }
+
+    #header.scrolled .nav-container {
+        height: 76px;
+    }
+
+    .logo-image {
+        height: 58px;
+    }
+
     .hero {
         min-height: 80vh;
-        /* No mobile, voltamos para cover para preencher a tela vertical com elegância */
         background-size: cover;
         background-position: center center;
     }
-    .hero-title { font-size: 2.2rem; margin-top: 20px; }
-    .hero-subtitle { font-size: 1rem; margin-bottom: 30px; }
-    .hero-big-logo { font-size: 3.5rem; }
-    
-    /* Grids convertidos para 1 Coluna (Empilhados) */
-    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    
-    .areas-grid { display: flex; flex-direction: column; }
-    .area-card { flex: 0 0 100%; max-width: 100%; margin-bottom: 0; }
-    
-    .diff-grid { grid-template-columns: 1fr; gap: 20px; }
-    .team-card { flex: 0 0 calc(50% - 15px); }
-    
-    /* Footer Mobile */
-    .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-    .social-icons { justify-content: center; }
-}
 
-/* Celulares Menores */
-@media (max-width: 480px) {
-    .hero-title { font-size: 1.8rem; }
-    
-    /* Botões mais acessíveis para tocar com o dedo */
-    .btn { width: 100%; text-align: center; padding: 16px 20px; } 
-    
-    /* Formulário otimizado para não vazar da tela */
-    .contact-form { padding: 30px 20px; } 
-    .form-row { flex-direction: column; gap: 0; } /* DDD e Telefone um embaixo do outro */
-    .col-ddd { flex: unset; width: 100%; }
-    
-    .team-card { flex: 0 0 100%; }
-}
+    .hero-logo {
+        width: min(100%, 366px);
+        margin-bottom: 20px;
+    }
 
-/* Correção Premium da Marca D'água para Celulares */
-@media (max-width: 768px) {
+    .hero-kicker {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 26px;
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .areas-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .area-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+
+    .diff-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .team-grid-premium {
+        grid-template-columns: 1fr;
+    }
+
+    .team-img-wrapper img {
+        height: 450px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-brand {
+        align-items: center;
+    }
+
+    .footer-monogram {
+        width: 54px;
+        height: 54px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
     .quem-somos-watermark {
         padding-top: 80px;
         padding-bottom: 80px;
-        background-size: cover; 
-        background-position: center; 
+        background-size: cover;
+        background-position: center;
     }
+
     .quem-somos-watermark::before {
-        background: radial-gradient(circle, rgba(10,25,47,0.85) 0%, rgba(10,25,47,1) 100%);
+        background: radial-gradient(circle, rgba(10, 25, 47, 0.85) 0%, rgba(10, 25, 47, 1) 100%);
     }
 }
+
+@media (max-width: 480px) {
+    .hero-logo {
+        width: min(100%, 297px);
+    }
+
+    .hero-kicker {
+        font-size: 0.9rem;
+        line-height: 1.35;
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .logo-image {
+        height: 50px;
+    }
+
+    .footer-logo {
+        width: min(100%, 300px);
+        height: auto;
+    }
+
+    .cta-monogram,
+    .footer-monogram {
+        width: 64px;
+        height: auto;
+    }
+
+    .cta-section h2 {
+        font-size: 1.9rem;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 16px 20px;
+    }
+
+    .contact-form {
+        padding: 30px 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .col-ddd {
+        flex: unset;
+        width: 100%;
+    }
+
+    .team-card {
+        flex: 0 0 100%;
+    }
+}
+
