@@ -645,13 +645,13 @@ p, a, li, span {
 }
 
 /* =========================================
-   EQUIPE
+   EQUIPE DE ADVOGADOS (Design Premium 2 Sócios)
 ========================================= */
 .team-grid-premium {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 60px;
-    max-width: 900px;
+    max-width: 900px; /* Mantém os cards num tamanho imponente, mas elegante */
     margin: 0 auto;
 }
 
@@ -669,25 +669,30 @@ p, a, li, span {
     position: relative;
     border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    /* Garante um fundo escuro e consistente para a imagem contida */
+    background-color: #0A192F; /* Azul profundo Navy */
+    
 }
 
 .team-img-wrapper img {
     width: 100%;
-    height: 500px;
+    height: 500px; /* Fotos altas e imponentes no desktop */
     object-fit: cover;
-    filter: grayscale(80%);
+    object-position: top center; /* CRUCIAL: Faz a imagem caber inteira dentro do tamanho do card, sem cortes */
+    filter: grayscale(80%); /* Ar corporativo sofisticado */
     transition: all 0.5s ease;
 }
 
 .team-card-premium:hover .team-img-wrapper img {
-    filter: grayscale(0%);
-    transform: scale(1.03);
+    filter: grayscale(0%); /* Revela as cores originais ao passar o mouse */
+    transform: scale(1.03); /* Leve zoom */
 }
 
+/* Camada que aparece sobre a foto pedindo para clicar */
 .team-overlay {
     position: absolute;
-    inset: 0;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(10, 25, 47, 0.75);
     display: flex;
     align-items: center;
@@ -730,21 +735,18 @@ p, a, li, span {
 }
 
 /* =========================================
-   MODAIS DA EQUIPE
+   MODAIS DA EQUIPE (Janela Pop-up)
 ========================================= */
 .team-modal {
-    display: none;
+    display: none; /* Escondido por padrão */
     position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    z-index: 2000; /* Acima de tudo no site */
+    left: 0; top: 0; width: 100%; height: 100%;
     background-color: rgba(6, 17, 33, 0.95);
     backdrop-filter: blur(10px);
     opacity: 0;
     transition: opacity 0.4s ease;
-    overflow-y: auto;
+    overflow-y: auto; /* Permite rolar se o texto for gigante */
 }
 
 .team-modal.show {
@@ -758,12 +760,12 @@ p, a, li, span {
     background-color: var(--bg-card);
     margin: auto;
     padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.05);
     border-radius: 4px;
     width: 90%;
     max-width: 950px;
     position: relative;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
     transform: translateY(50px);
     transition: transform 0.4s ease;
 }
@@ -784,9 +786,7 @@ p, a, li, span {
     transition: var(--transition);
 }
 
-.close-modal:hover {
-    color: var(--gold);
-}
+.close-modal:hover { color: var(--gold); }
 
 .modal-grid {
     display: grid;
@@ -798,7 +798,9 @@ p, a, li, span {
     height: 100%;
     min-height: 450px;
     object-fit: cover;
+    object-position: top center;
     border-radius: 4px 0 0 4px;
+    background-color: #0A192F;
 }
 
 .modal-text {
@@ -806,6 +808,18 @@ p, a, li, span {
     text-align: left;
 }
 
+/* Responsividade Mobile para a Equipe e Modais */
+@media (max-width: 991px) {
+    .modal-grid { grid-template-columns: 1fr; }
+    .modal-img img { border-radius: 4px 4px 0 0; height: 350px; min-height: unset; }
+    .modal-text { padding: 30px; }
+}
+@media (max-width: 768px) {
+    .team-grid-premium { grid-template-columns: 1fr; }
+    .team-img-wrapper img { 
+        height: 450px; /* Reduz a altura imponente no celular mantendo o enquadramento inteiro */
+    }
+}
 /* =========================================
    CTA
 ========================================= */
