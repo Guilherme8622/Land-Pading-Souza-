@@ -35,6 +35,11 @@
 
 html {
     scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 section[id] {
@@ -352,7 +357,7 @@ p, a, li, span {
 ========================================= */
 .quem-somos-watermark {
     background-color: #0A192F;
-    background-image: url('assets/img/Marca_daagua.jpg');
+    background-image: url('assets/img/Marca_daagua.png');
     background-position: center center;
     background-repeat: no-repeat !important;
     background-size: contain;
@@ -485,12 +490,12 @@ p, a, li, span {
 .solutions-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 36px;
+    gap: 30px;
 }
 
 .solution-card {
-    min-height: 510px;
-    padding: 38px 38px 34px;
+    min-height: auto;
+    padding: 32px 32px 28px;
     background: rgba(17, 34, 64, 0.92);
     border: 1px solid rgba(78, 114, 177, 0.22);
     border-radius: 16px;
@@ -498,16 +503,16 @@ p, a, li, span {
 }
 
 .solution-card h3 {
-    margin-bottom: 24px;
-    font-size: clamp(2rem, 2.2vw, 2.35rem);
+    margin-bottom: 20px;
+    font-size: clamp(1.8rem, 2vw, 2.15rem);
     line-height: 1.15;
 }
 
 .solution-card p {
-    margin: 0 0 20px;
+    margin: 0 0 16px;
     color: var(--text-body);
-    font-size: 1rem;
-    line-height: 1.72;
+    font-size: 0.96rem;
+    line-height: 1.66;
 }
 
 .solution-card p:last-child {
