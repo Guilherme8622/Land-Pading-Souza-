@@ -652,10 +652,13 @@ p, a, li, span {
 /* =========================================
    EQUIPE DE ADVOGADOS (Design Premium 2 Sócios)
 ========================================= */
+/* =========================================
+   EQUIPE DE ADVOGADOS (Design Premium 2 Sócios)
+========================================= */
 .team-grid-premium {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 60px;
+    grid-template-columns: repeat(2, 1fr); /* Grid de duas colunas perfeitamente simétricas */
+    gap: 60px; /* Gap grande e limpo para sofisticação */
     max-width: 900px; /* Mantém os cards num tamanho imponente, mas elegante */
     margin: 0 auto;
 }
@@ -675,16 +678,16 @@ p, a, li, span {
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-    /* Garante um fundo escuro e consistente para a imagem contida */
-    background-color: #0A192F; /* Azul profundo Navy */
-    
+    /* Força uma proporção de imagem vertical (Portrait) idêntica para ambos */
+    aspect-ratio: 3 / 4; 
+    /* Garante um fundo escuro e consistente se a foto não carregar */
+    background-color: #0A192F; /* Azul profundo Navy do site */
 }
 
 .team-img-wrapper img {
     width: 100%;
-    height: 500px; /* Fotos altas e imponentes no desktop */
-    object-fit: cover;
-    object-position: top center; /* CRUCIAL: Faz a imagem caber inteira dentro do tamanho do card, sem cortes */
+    height: 100%; /* Fotos preenchem o wrapper mantendo o aspect-ratio */
+    object-fit: cover; /* CRUCIAL: Preenche o espaço sem distorcer ou cortar a cabeça */
     filter: grayscale(80%); /* Ar corporativo sofisticado */
     transition: all 0.5s ease;
 }
@@ -694,7 +697,7 @@ p, a, li, span {
     transform: scale(1.03); /* Leve zoom */
 }
 
-/* Camada que aparece sobre a foto pedindo para clicar */
+/* Camada de hover padronizada */
 .team-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -737,6 +740,17 @@ p, a, li, span {
     font-size: 0.95rem;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+/* Responsividade Mobile para a Equipe */
+@media (max-width: 768px) {
+    .team-grid-premium {
+        grid-template-columns: 1fr; /* Coluna única no mobile */
+        gap: 30px;
+    }
+    .team-img-wrapper img {
+        height: 450px; /* Reduz a altura imponente no celular mantendo o enquadramento inteiro */
+    }
 }
 
 /* =========================================
