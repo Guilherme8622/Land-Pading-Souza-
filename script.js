@@ -146,3 +146,58 @@ window.onclick = function(event) {
         }, 400);
     }
 };
+
+
+/* =========================================
+   SISTEMA DE ENVIO DE E-MAIL (EmailJS)
+========================================= */
+const contactForm = document.getElementById('contactForm');
+const btnEnviar = document.getElementById('btn-enviar');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede a página de recarregar
+
+        // Muda o botão para mostrar que está carregando
+        const textoOriginal = btnEnviar.innerText;
+        btnEnviar.innerText = 'ENVIANDO...';
+        btnEnviar.style.opacity = '0.7';
+        btnEnviar.disabled = true;
+
+        // COLOQUE SUAS CHAVES AQUI:
+        const serviceID = 'service_5jsz9mr'; // Aquele que você pegou na primeira tela
+        const templateID = 'template_souka0g'; // O que você acabou de salvar
+
+        // Dispara o e-mail
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                // Sucesso
+                btnEnviar.innerText = 'MENSAGEM ENVIADA!';
+                btnEnviar.style.backgroundColor = '#25D366'; // Fica verde
+                btnEnviar.style.color = '#FFF';
+                contactForm.reset(); // Limpa o formulário
+                
+                setTimeout(() => {
+                    btnEnviar.innerText = textoOriginal;
+                    btnEnviar.style.backgroundColor = '';
+                    btnEnviar.style.color = '';
+                    btnEnviar.style.opacity = '1';
+                    btnEnviar.disabled = false;
+                }, 4000);
+            }, (err) => {
+                // Erro
+                btnEnviar.innerText = 'ERRO AO ENVIAR';
+                btnEnviar.style.backgroundColor = '#dc3545'; // Fica vermelho
+                btnEnviar.style.color = '#FFF';
+                console.log('Erro no EmailJS:', err);
+                
+                setTimeout(() => {
+                    btnEnviar.innerText = textoOriginal;
+                    btnEnviar.style.backgroundColor = '';
+                    btnEnviar.style.color = '';
+                    btnEnviar.style.opacity = '1';
+                    btnEnviar.disabled = false;
+                }, 4000);
+            });
+    });
+}
